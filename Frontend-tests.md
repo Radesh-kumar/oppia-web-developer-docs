@@ -17,6 +17,8 @@
     * [`afterEach`](#aftereach)
     * [`afterAll`](#afterall)
     * [`expect`](#expect)
+    * [`tick`](#tick)
+    * [`flush`](#flush)
   * [Good practices](#good-practices)
     * [Tests should work in any order](#tests-should-work-in-any-order)
     * [Do not test private methods/properties](#do-not-test-private-methodsproperties)
@@ -235,12 +237,12 @@ The `expect` function is used to assert a condition in the test. You can check a
 #### `tick`
 
 We call [the tick function](https://angular.io/api/core/testing/tick) when there are pending asynchronous activities we want to complete. The tick() function blocks execution and simulates the passage of time until all pending asynchronous activities complete. Asynchronous activities such as timeouts and promises will be handled using the tick() function.  
-Note: This function will only work if the tests are running in the fakeAsync() block.
+##### Note: This function will only work if the tests are running in the fakeAsync() block.
 
 #### `flush`
 
 While testing asynchronous functions, we can use [the flush function](https://angular.io/api/core/testing/flush) instead of awaiting them individually. The difference between flushMicrotasks and flush is that the former only processes the pending microtasks ( promise callbacks), but not the (macro) tasks ( scheduled callbacks), while flush processes both.  
-Note: This function will only work if the tests are running in the fakeAsync() block.
+##### Note: This function will only work if the tests are running in the fakeAsync() block.
 
 ### Good practices
 
